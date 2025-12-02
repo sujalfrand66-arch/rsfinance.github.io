@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>R/S Finance & Tax Solution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic SEO -->
+    <meta name="description" content="R/S Finance & Tax Solution – GST, Income Tax, Bookkeeping & Business Registrations for small businesses and shops.">
+
+    <style>
+        /* ---------- RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1b2b3c;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ---------- TOP BAR ---------- */
+        .top-bar {
+            background: #0b4c8c;
+            color: #ffffff;
+            text-align: center;
+            padding: 6px 10px;
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e3e7f0;
+            padding: 10px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0b4c8c;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: #15a2ff;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+        }
+
+        .nav-menu a {
+            color: #1b2b3c;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .nav-menu a:hover {
+            color: #0b4c8c;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(
+                    rgba(5, 39, 82, 0.78),
+                    rgba(5, 39, 82, 0.9)
+            ), url("banner.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 70px 7% 80px;
+            text-align: left;
+        }
+
+        /* Banner ke andar animation (wave style) */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.09), transparent 55%),
+                        radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06), transparent 60%),
+                        radial-gradient(circle at 0% 100%, rgba(0,173,255,0.18), transparent 55%);
+            mix-blend-mode: screen;
+            opacity: 0.85;
+            pointer-events: none;
+            animation: heroWave 14s infinite alternate ease-in-out;
+        }
+
+        @keyframes heroWave {
+            0% {
+                transform: translate3d(-25px, -10px, 0) scale(1.02);
+            }
+            50% {
+                transform: translate3d(18px, 18px, 0) scale(1.05);
+            }
+            100% {
+                transform: translate3d(-10px, 8px, 0) scale(1.03);
+            }
+        }
+
+        .hero-inner {
+            position: relative; /* so text upar rahe */
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-title-top {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            color: #d0e7ff;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 30px;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            color: #ffdd5e;
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            color: #eaf4ff;
+            margin-bottom: 22px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #18a4ff;
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #0b8ae0;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ---------- SECTIONS COMMON ---------- */
+        section {
+            padding: 50px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #16324f;
+        }
+
+        .section-sub {
+            text-align: center;
+            font-size: 14px;
+            color: #607389;
+            margin-bottom: 28px;
+        }
+
+        /* ---------- SERVICES CARDS ---------- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(22, 50, 79, 0.06);
+            padding: 20px 18px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #e7f3ff;
+            color: #0b4c8c;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #16324f;
+        }
+
+        .card ul {
+            margin-left: 16px;
+            margin-bottom: 16px;
+            color: #44566b;
+            font-size: 14px;
+        }
+
+        .card ul li {
+            margin-bottom: 5px;
+        }
+
+        .card .card-btn {
+            display: inline-block;
+            background: #0b4c8c;
+            color: #ffffff;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .card .card-btn:hover {
+            background: #093a6a;
+        }
+
+        /* ---------- PLANS SECTION ---------- */
+        .plans-wrap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .plan-box {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #d4e3ff;
+            padding: 18px 16px 20px;
+            box-shadow: 0 8px 16px rgba(11, 76, 140, 0.06);
+            text-align: center;
+        }
+
+        .plan-box h3 {
+            font-size: 18px;
+            color: #16324f;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #e7f3ff;
+            color: #0b4c8c;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .plan-small {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #607389;
+        }
+
+        /* ---------- CONTACT SECTION ---------- */
+        .contact-wrap {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-wrap p {
+            font-size: 14px;
+            color: #44566b;
+            margin-bottom: 18px;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .contact-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 10px 16px;
+            border: 1px solid #d4e3ff;
+            font-size: 13px;
+        }
+
+        /* ---------- FLOATING WHATSAPP ---------- */
+        .wa-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+            z-index: 100;
+        }
+
+        .wa-float span {
+            font-size: 26px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #0b4c8c;
+            color: #cfe4ff;
+            text-align: center;
+            padding: 14px 7%;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .hero {
+                padding: 55px 7% 60px;
+                text-align: left;
+            }
+            .hero h1 {
+                font-size: 24px;
+            }
+            .hero-inner {
+                max-width: 100%;
+            }
+            .nav-menu {
+                gap: 14px;
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        R/S Finance &amp; Tax Solution – GST • Income Tax • Bookkeeping • Registrations
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">R/S <span>Finance</span></div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <div class="hero-title-top">Expert Tax &amp; Compliance Partner</div>
+            <h1>Your Trusted Partner For <span>Legal &amp; Tax Solutions</span> In India</h1>
+            <p class="hero-sub">
+                From GST &amp; Income Tax Return Filing to Complete Bookkeeping &amp; Business Registrations –
+                we help you stay compliant and tension-free.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn-primary" href="https://wa.me/919983853091" target="_blank">
+                    💼 Talk To Sujal (GST Expert)
+                </a>
+                <a class="btn-outline" href="https://wa.me/919257007044" target="_blank">
+                    📞 Talk To Rohan (Support)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="section-title">End-To-End Business Setup &amp; Compliance Assistance</h2>
+        <p class="section-sub">
+            Easy &amp; Affordable services tailored for small businesses, shops and startups.
+        </p>
+
+        <div class="cards-grid">
+            <!-- Bookkeeping -->
+            <div class="card">
+                <div class="card-tag">Easy &amp; Affordable</div>
+                <h3>Bookkeeping &amp; Accounts</h3>
+                <ul>
+                    <li>Monthly Purchase &amp; Sales Entry</li>
+                    <li>Cash / Bank Reconciliation</li>
+                    <li>Debtors &amp; Creditors Tracking</li>
+                    <li>Stock &amp; Expense Management</li>
+                    <li>Monthly Profit Summary</li>
+                </ul>
+                <a class="card-btn" href="https://wa.me/919983853091" target="_blank">
+                    Explore Bookkeeping
+                </a>
+            </div>
+
+            <!-- GST & Returns -->
+            <div class="card">
+                <div class="card-tag">GST &amp; Returns</div>
+                <h3>GST Management</h3>
+                <ul>
+                    <li>GST Registration &amp; Amendment</li>
+                    <li>GSTR-1, GSTR-3B Monthly / Quarterly Filing</li>
+                    <li>GSTIN Reconciliation &amp; Notice Reply</li>
+                    <li>E-Invoice &amp; E-Way Bill Support</li>
+                    <li>Input Tax Credit Review</li>
+                </ul>
+                <a class="card-btn" href="https://wa.me/919257007044" target="_blank">
+                    Explore GST Services
+                </a>
+            </div>
+
+            <!-- Income Tax -->
+            <div class="card">
+                <div class="card-tag">Income Tax</div>
+                <h3>Income Tax &amp; TDS</h3>
+                <ul>
+                    <li>Individual &amp; Business ITR Filing</li>
+                    <li>TDS / TCS Return Filing</li>
+                    <li>Capital Gain &amp; Other Income Planning</li>
+                    <li>Tax Saving &amp; Advance Tax Guidance</li>
+                    <li>Notices &amp; Compliance Handling</li>
+                </ul>
+                <a class="card-btn" href="https://wa.me/919983853091" target="_blank">
+                    Explore Tax Services
+                </a>
+            </div>
+
+            <!-- Registrations -->
+            <div class="card">
+                <div class="card-tag">Business Setup</div>
+                <h3>Registrations &amp; Licences</h3>
+                <ul>
+                    <li>MSME / Udyam Registration</li>
+                    <li>Firm / Shop Act Registration</li>
+                    <li>FSSAI / Food Licence Support</li>
+                    <li>Trade Licence &amp; Local Registrations</li>
+                    <li>Other Compliances as per Requirement</li>
+                </ul>
+                <a class="card-btn" href="https://wa.me/919257007044" target="_blank">
+                    Setup Your Business
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANS -->
+    <section id="plans">
+        <h2 class="section-title">Our Plans</h2>
+        <p class="section-sub">
+            Transparent monthly packages – choose as per your requirement.
+        </p>
+
+        <div class="plans-wrap">
+            <div class="plan-box">
+                <h3>GST Return</h3>
+                <div class="price">₹ 1499 / Month</div>
+                <div class="plan-small">
+                    Regular GST filing &amp; basic support.
+                </div>
+            </div>
+
+            <div class="plan-box">
+                <h3>Bookkeeping + GST</h3>
+                <div class="price">₹ 2499 / Month</div>
+                <div class="plan-small">
+                    Complete monthly accounts + GST filing.
+                </div>
+            </div>
+
+            <div class="plan-box">
+                <h3>Premium GST Management</h3>
+                <div class="price">₹ 4999 / Month</div>
+                <div class="plan-small">
+                    Stock Maintain, Tax Planning, Full Support &amp; Analysis.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Talk To Us</h2>
+        <p class="section-sub">
+            Share your requirement on WhatsApp – we will explain plan according to your business.
+        </p>
+
+        <div class="contact-wrap">
+            <p>
+                Whether you are a shopkeeper, trader, service provider or small manufacturer,
+                we can handle your complete accounting &amp; tax work.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-box">
+                    👨‍💼 Sujal – WhatsApp: <strong>+91 99838 53091</strong>
+                </div>
+                <div class="contact-box">
+                    👨‍💼 Rohan Sain – WhatsApp: <strong>+91 92570 07044</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP -->
+    <a class="wa-float" href="https://wa.me/919983853091" target="_blank" aria-label="Chat on WhatsApp">
+        <span>💬</span>
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 R/S Finance &amp; Tax Solution. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
